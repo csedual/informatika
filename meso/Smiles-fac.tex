@@ -8,9 +8,9 @@
 
 \lstset{tabsize=2,language=Python,showstringspaces=false}
 
-\title{Computer Science I \hfill CSCI-141\\
-Turtle Drawing \hfill Lecture}
-\author{} % \author{Ben K Steele} 
+\title{Informatike I \hfill CSCI-141\\
+Vizatimet e breshkes \hfill Leksion 1}
+\author{} % \author{RIT CS1 group} 
 % revised bks 07/06/17 to revise faculty section and reword implementation
 % revised bks 01/16/17 to add done() to the companion code and faculty notes
 % revised bks 07/10/13 to change to csci141
@@ -27,55 +27,65 @@ Turtle Drawing \hfill Lecture}
 \end{tiny}
 \vspace{-6mm}
 
-\section{Problem Statement}
+\section{Pershkrimi i problemit}
 
 \begin{center}
 \includegraphics[width=3.0in]{Faces.png} 
 \end{center}
 
-Using Python's turtle graphics module, we would like to design a
-program that draws a simple face, worthy of a stick figure.  To
-emphasize ``code reuse,'' the program will ultimately draw two faces.
+Nje menyre per te bere vizatime te thjeshta eshte duke perdorur librarine \texttt{turtle} ne Python. Si fillim, le 
+te shikojme si mund te vizatojme nje fytyre. Per te nenvizuar "riperdorimin" e programeve, ne kete rast do vizatojme dy fytyra.
+% Using Python's turtle graphics module, we would like to design a
+% program that draws a simple face, worthy of a stick figure.  To
+% emphasize ``code reuse,'' the program will ultimately draw two faces.
 
 
-\section{Analysis and Solution Design}
+\section{Analiza dhe projekti i zgjidhjes}
 
-We will utilize commands commonly found in turtle drawing packages. 
-Turtles are small imaginary objects that have pens 
-connected to their undersides. 
-Examples of what the turtle can be told to do include:
+Komandat e perdorura jane pjese te librarise turtle. Breshka (turtle) eshte nje objekt imagjinar qe leviz ne hapesiren 
+e ekranit dhe ka ne dore nje laps. Gjate levizjes breshka mund te vizatoje figura te ndryshme. Disa nga veprimet jane:
+% We will utilize commands commonly found in turtle drawing packages. 
+% Turtles are small imaginary objects that have pens 
+% connected to their undersides. 
+% Examples of what the turtle can be told to do include:
 \begin{itemize}
-\item
-move forward or backward a certain distance;
-\item
-move in a circle (Python always draws them counter-clockwise (CCW));
-\item
-turn a certain number of degrees left (CCW) or right (CW);
-\item
-put its pen up or down. If its pen is down, 
-the turtle will draw a line as it moves, revealing its path.
+\item ecje para per nje distance te caktuar;
+% move forward or backward a certain distance;
+\item levizje rrethore (ne drejtim te kundert me akrepat e ores);
+% move in a circle (Python always draws them counter-clockwise (CCW));
+\item rrotullim majtas (djathtas) me nje numer te caktuar gradesh;
+% turn a certain number of degrees left (CCW) or right (CW);
+\item ulje/ngritje e lapsit. Kur lapsi eshte poshte, cdo levizje e breshkes vizatohet ne ekran. 
+% put its pen up or down. If its pen is down, 
+%the turtle will draw a line as it moves, revealing its path.
 \end{itemize}
 
-Our design will involve these activities:
+% Our design will involve these activities:
+Projekti i zgjidhjes perfshin keto aktivitete:
 \begin{itemize}
-\item
-Define a \emph{home position} for the turtle.
-\item
-Describe, via \emph{algorithms}, 
-how to draw each feature of the face by leaving the home position, 
-drawing the feature, and then returning to the home position.
+\item Percaktimi i nje pozicioni fillestar (home) per breshken.
+%Define a \emph{home position} for the turtle.
+\item Pershkrim ne menyre algoritmike i levizjeve qe i duhen breshkes per te vizatuar figuren e kerkuar dhe per tu kthyer 
+ne pozicionin fillestar.
+% Describe, via \emph{algorithms}, 
+%how to draw each feature of the face by leaving the home position, 
+%drawing the feature, and then returning to the home position.
 \end{itemize}
 
-{\bf Home Position}: The center of the turtle's canvas, with the turtle facing upward (“North”)
-and its pen up is the desired home position for this problem.
+{\bf Pozicioni fillester}: Mesi i ekranit, me breshken qe shikon drejt veriut (V)
+dhe me lapsin e ngritur lart.
+% with the turtle facing upward (“North”)
+% and its pen up is the desired home position for this problem.
 
-By defining a home position, we make it easier to add, remove, or 
-rearrange the order of the feature-drawing algorithms.
-This flexibility has a cost:
-the extra movement from and to the home position causes
-our design to be somewhat less efficient than a brute force design.
-Flexibility of design and performance/efficiency are software qualities 
-that are often at odds.
+Duke percaktuar nje pozicion fillestar eshte me e lehte te shtosh ose te heqesh pjese nga figura.
+
+% By defining a home position, we make it easier to add, remove, or 
+% rearrange the order of the feature-drawing algorithms.
+% This flexibility has a cost:
+% the extra movement from and to the home position causes
+% our design to be somewhat less efficient than a brute force design.
+% Flexibility of design and performance/efficiency are software qualities 
+% that are often at odds.
 
 %% While the extra movement to and from the home position does
 %% make the design somewhat less time-efficient than a brute force design,
